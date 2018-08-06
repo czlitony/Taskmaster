@@ -8,6 +8,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QT += xml
+
 TARGET = Taskmaster
 TEMPLATE = app
 
@@ -25,10 +27,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    settings/musicsetting/musicsetting.cpp \
+    settings/musicsetting/musicsettingitem.cpp \
+    settings/musicsetting/taskmusic.cpp \
+    settings/musicsetting/musicsettingxmlcache.cpp \
+    settings/settingdialog.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mainwindow.h \
+    settings/musicsetting/musicsetting.h \
+    settings/musicsetting/musicsettingcache.h \
+    settings/musicsetting/musicsettingitem.h \
+    settings/musicsetting/taskmusic.h \
+    settings/musicsetting/tasktype.h \
+    settings/musicsetting/musicsettingxmlcache.h \
+    settings/settingdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    settings/settingdialog.ui

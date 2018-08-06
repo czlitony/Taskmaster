@@ -1,17 +1,28 @@
 #include "musicsetting.h"
+#include "musicsettingcache.h"
+#include "musicsettingxmlcache.h"
+
 
 MusicSetting::MusicSetting():
-    isMusicOn(true)
+    m_musicSettingItem(new MusicSettingItem()),
+    m_musicSettingCache(new MusicSettingXmlCache())
 {
 
 }
 
-void MusicSetting::switchOnMusic()
+MusicSetting::~MusicSetting()
 {
-    isMusicOn = true;
+    delete m_musicSettingCache;
 }
 
-void MusicSetting::switchOffMusic()
+void MusicSetting::switchMusic(bool on)
 {
-    isMusicOn = false;
+    m_musicSettingItem->switchMusic(on);
+
+    updateCache();
+}
+
+void MusicSetting::updateCache()
+{
+    m_musicSettingCache->setMusicSetting(*m_musicSettingItem);
 }

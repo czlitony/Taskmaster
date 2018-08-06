@@ -1,11 +1,16 @@
 #ifndef MUSICSETTINGXMLCACHE_H
 #define MUSICSETTINGXMLCACHE_H
 
+#include "musicsettingcache.h"
 
-class MusicSettingXmlCache
+class MusicSettingXmlCache : public MusicSettingCache
 {
 public:
-    MusicSettingXmlCache();
+    void setMusicSetting(const MusicSettingItem& settingItem) override;
+    void getMusicSetting(MusicSettingItem& settingItem) override;
+
+private:
+    MusicSettingItem m_musicSettingItem;
 };
 
 #endif // MUSICSETTINGXMLCACHE_H

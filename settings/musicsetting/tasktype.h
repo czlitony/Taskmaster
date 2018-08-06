@@ -4,8 +4,8 @@
 
 enum class TaskType
 {
-    QUICK_TASK,
-    FILE_TASK
+    Quick_Task,
+    File_Task
 };
 
 #endif // TASKTYPE_H

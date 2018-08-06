@@ -3,16 +3,23 @@
 
 #include <QObject>
 
+#include"musicsettingitem.h"
+
+class MusicSettingCache;
+
 class MusicSetting
 {
 public:
     MusicSetting();
+    ~MusicSetting();
 
-    void switchOnMusic();
-    void switchOffMusic();
+    void switchMusic(bool on);
 
 private:
-    bool isMusicOn;
+    void updateCache();
+
+    MusicSettingItem* m_musicSettingItem;
+    MusicSettingCache* m_musicSettingCache;
 
 };
 
