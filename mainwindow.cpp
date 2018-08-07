@@ -3,6 +3,8 @@
 #include "settings/settingdialog.h"
 #include <QMenuBar>
 
+#include "tasks/newtaskretriever.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,4 +22,7 @@ void MainWindow::on_settingButton_clicked()
     SettingDialog* settingDialog = new SettingDialog(this);
     settingDialog->setModal(true);
     settingDialog->show();
+
+    auto newTaskRetriever = new NewTaskRetriever;
+    newTaskRetriever->getNewTasks();
 }

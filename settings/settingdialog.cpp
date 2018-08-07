@@ -7,6 +7,7 @@
 #include <QSettings>
 
 static const QString LAST_MUSIC_FILE_PATH = "LastMusicFilePath";
+static const QString COOKIE = "Cookie";
 
 SettingDialog::SettingDialog(QWidget *parent) :
     QDialog(parent),
@@ -123,4 +124,14 @@ void SettingDialog::on_selectFileTaskMusicButton_clicked()
     }
 
     setting.setValue(LAST_MUSIC_FILE_PATH, fileDialog->directory().absolutePath());
+}
+
+void SettingDialog::on_updateCookieButton_clicked()
+{
+    QString cookie = ui->cookieTextEdit->toPlainText();
+    if (!cookie.isEmpty())
+    {
+        QSettings setting("./cookie.ini", QSettings::IniFormat);
+        setting.setValue(COOKIE, cookie);
+    }
 }

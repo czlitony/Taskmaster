@@ -9,6 +9,7 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 QT += xml
+QT += network
 
 TARGET = Taskmaster
 TEMPLATE = app
@@ -32,7 +33,9 @@ SOURCES += \
     settings/musicsetting/musicsettingitem.cpp \
     settings/musicsetting/taskmusic.cpp \
     settings/musicsetting/musicsettingxmlcache.cpp \
-    settings/settingdialog.cpp
+    settings/settingdialog.cpp \
+    tasks/taskretriever.cpp \
+    tasks/newtaskretriever.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +45,9 @@ HEADERS += \
     settings/musicsetting/taskmusic.h \
     settings/musicsetting/tasktype.h \
     settings/musicsetting/musicsettingxmlcache.h \
-    settings/settingdialog.h
+    settings/settingdialog.h \
+    tasks/taskretriever.h \
+    tasks/newtaskretriever.h
 
 FORMS += \
         mainwindow.ui \

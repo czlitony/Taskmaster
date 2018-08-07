@@ -30,6 +30,8 @@ private slots:
 
     void on_selectFileTaskMusicButton_clicked();
 
+    void on_updateCookieButton_clicked();
+
 private:
     void initSettingDialog();
 

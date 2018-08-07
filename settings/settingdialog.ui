@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
-    <height>354</height>
+    <width>705</width>
+    <height>470</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>40</x>
      <y>30</y>
-     <width>591</width>
+     <width>631</width>
      <height>211</height>
     </rect>
    </property>
@@ -214,6 +214,67 @@
     </item>
    </layout>
   </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>9</y>
+     <width>671</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Music Setting</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>671</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Cookie Setting</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>631</width>
+      <height>89</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTextEdit" name="cookieTextEdit">
+       <property name="lineWrapMode">
+        <enum>QTextEdit::WidgetWidth</enum>
+       </property>
+       <property name="acceptRichText">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="updateCookieButton">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>update</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>groupBox_2</zorder>
  </widget>
  <resources/>
  <connections>
