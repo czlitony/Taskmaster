@@ -92,7 +92,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Setting</string>
+     <string>Settings</string>
     </property>
    </widget>
   </widget>
@@ -100,8 +100,4 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="quickTaskMusicGroup"/>
-  <buttongroup name="fileTaskMusicGroup"/>
- </buttongroups>
 </ui>

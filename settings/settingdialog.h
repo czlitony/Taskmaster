@@ -7,8 +7,6 @@ namespace Ui {
 class SettingDialog;
 }
 
-class MusicSetting;
-
 class SettingDialog : public QDialog
 {
     Q_OBJECT
@@ -20,10 +18,22 @@ public:
 private slots:
     void on_musicSwitch_clicked(bool checked);
 
-private:
-    Ui::SettingDialog *ui;
+    void on_defaultQuickTaskMusicButton_clicked();
 
-    MusicSetting* m_musicSetting;
+    void on_selfQuickTaskMusicButton_clicked();
+
+    void on_selectQuickTaskMusicButton_clicked();
+
+    void on_defaultFileTaskMusicButton_clicked();
+
+    void on_selfFileTaskMusicButton_clicked();
+
+    void on_selectFileTaskMusicButton_clicked();
+
+private:
+    void initSettingDialog();
+
+    Ui::SettingDialog *ui;
 };
 
 #endif // SETTINGDIALOG_H

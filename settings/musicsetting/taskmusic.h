@@ -9,14 +9,15 @@ class TaskMusic
 {
 public:
     TaskMusic();
-    TaskMusic(const TaskType& type, bool isDefault, const QString& file);
+    TaskMusic(bool isDefault, const QString& file);
 
-    const TaskType getType() const;
     bool isDefaultMusic() const;
+    void setAsDefault(bool isDefault);
+
     const QString getFile() const;
+    void setFile(const QString& file);
 
 private:
-    TaskType m_type;
     bool m_isDefault;
     QString m_file;
 

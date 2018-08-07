@@ -18,6 +18,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_settingButton_clicked()
 {
     SettingDialog* settingDialog = new SettingDialog(this);
-    settingDialog->setModal(false);
+    settingDialog->setModal(true);
     settingDialog->show();
 }

@@ -28,8 +28,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    main.cpp \
-    mainwindow.cpp \
     settings/musicsetting/musicsetting.cpp \
     settings/musicsetting/musicsettingitem.cpp \
     settings/musicsetting/taskmusic.cpp \
@@ -38,7 +36,6 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-    mainwindow.h \
     settings/musicsetting/musicsetting.h \
     settings/musicsetting/musicsettingcache.h \
     settings/musicsetting/musicsettingitem.h \

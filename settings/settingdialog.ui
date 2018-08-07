@@ -11,14 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Settings</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>561</width>
+     <width>591</width>
      <height>211</height>
     </rect>
    </property>
@@ -70,6 +70,9 @@
       <property name="checked">
        <bool>true</bool>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="0">
@@ -96,17 +99,33 @@
       <property name="checked">
        <bool>false</bool>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
-    <item row="3" column="3">
-     <widget class="QPushButton" name="selectQuickTaskMusicButton">
-      <property name="text">
-       <string>Select</string>
+     <widget class="QLineEdit" name="selfQuickTaskMusicLineEdit">
+      <property name="enabled">
+       <bool>true</bool>
       </property>
      </widget>
+    </item>
+    <item row="5" column="0">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item row="4" column="0" colspan="2">
      <widget class="QLabel" name="label_2">
@@ -115,8 +134,8 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <spacer name="horizontalSpacer_3">
+    <item row="6" column="0">
+     <spacer name="horizontalSpacer_4">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -137,25 +156,35 @@
        <string>Default</string>
       </property>
       <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="selectQuickTaskMusicButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="text">
+       <string>Select</string>
+      </property>
+      <property name="checkable">
        <bool>false</bool>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <spacer name="horizontalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="6" column="2">
+     <widget class="QLineEdit" name="selfFileTaskMusicLineEdit">
+      <property name="enabled">
+       <bool>true</bool>
       </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
     <item row="6" column="1">
      <widget class="QRadioButton" name="selfFileTaskMusicButton">
@@ -165,13 +194,19 @@
       <property name="checked">
        <bool>false</bool>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
      </widget>
-    </item>
-    <item row="6" column="2">
-     <widget class="QLineEdit" name="lineEdit_2"/>
     </item>
     <item row="6" column="3">
      <widget class="QPushButton" name="selectFileTaskMusicButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="text">
        <string>Select</string>
       </property>
@@ -181,5 +216,170 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>71</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>defaultQuickTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selfQuickTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selfQuickTaskMusicLineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>228</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selectQuickTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>562</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>defaultFileTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>85</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selfFileTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>105</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selfFileTaskMusicLineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selectFileTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
+ </buttongroups>
 </ui>
