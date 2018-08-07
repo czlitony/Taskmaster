@@ -2,6 +2,7 @@
 #include "ui_settingdialog.h"
 #include"musicsetting/musicsettingitem.h"
 #include "musicsetting/musicsetting.h"
+#include "utils/fileutils.h"
 #include <QString>
 #include <QFileDialog>
 #include <QSettings>
@@ -60,7 +61,7 @@ void SettingDialog::on_selfQuickTaskMusicButton_clicked()
 
 void SettingDialog::on_selectQuickTaskMusicButton_clicked()
 {
-    QSettings setting("./general_setting.ini", QSettings::IniFormat);
+    QSettings setting(FileUtils::getGeneralSettingFile(), QSettings::IniFormat);
     QString lastPath = setting.value(LAST_MUSIC_FILE_PATH).toString();
 
     QFileDialog *fileDialog = new QFileDialog(this);
@@ -80,9 +81,9 @@ void SettingDialog::on_selectQuickTaskMusicButton_clicked()
 
             MusicSetting::getInstance()->setSelfQuickTaskMusic(file);
         }
-
-        setting.setValue(LAST_MUSIC_FILE_PATH, fileDialog->directory().absolutePath());
     }
+
+    setting.setValue(LAST_MUSIC_FILE_PATH, fileDialog->directory().absolutePath());
 }
 
 void SettingDialog::on_defaultFileTaskMusicButton_clicked()
@@ -101,7 +102,7 @@ void SettingDialog::on_selfFileTaskMusicButton_clicked()
 
 void SettingDialog::on_selectFileTaskMusicButton_clicked()
 {
-    QSettings setting("./general_setting.ini", QSettings::IniFormat);
+    QSettings setting(FileUtils::getGeneralSettingFile(), QSettings::IniFormat);
     QString lastPath = setting.value(LAST_MUSIC_FILE_PATH).toString();
 
     QFileDialog *fileDialog = new QFileDialog(this);
@@ -131,7 +132,7 @@ void SettingDialog::on_updateCookieButton_clicked()
     QString cookie = ui->cookieTextEdit->toPlainText();
     if (!cookie.isEmpty())
     {
-        QSettings setting("./cookie.ini", QSettings::IniFormat);
+        QSettings setting(FileUtils::getCookieFile(), QSettings::IniFormat);
         setting.setValue(COOKIE, cookie);
     }
 }

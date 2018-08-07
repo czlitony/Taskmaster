@@ -35,7 +35,8 @@ SOURCES += \
     settings/musicsetting/musicsettingxmlcache.cpp \
     settings/settingdialog.cpp \
     tasks/taskretriever.cpp \
-    tasks/newtaskretriever.cpp
+    tasks/newtaskretriever.cpp \
+    utils/fileutils.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,7 +48,8 @@ HEADERS += \
     settings/musicsetting/musicsettingxmlcache.h \
     settings/settingdialog.h \
     tasks/taskretriever.h \
-    tasks/newtaskretriever.h
+    tasks/newtaskretriever.h \
+    utils/fileutils.h
 
 FORMS += \
         mainwindow.ui \

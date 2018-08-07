@@ -23,6 +23,6 @@ void MainWindow::on_settingButton_clicked()
     settingDialog->setModal(true);
     settingDialog->show();
 
-    auto newTaskRetriever = new NewTaskRetriever;
-    newTaskRetriever->getNewTasks();
+//    auto newTaskRetriever = new NewTaskRetriever;
+//    newTaskRetriever->getNewTasks();
 }

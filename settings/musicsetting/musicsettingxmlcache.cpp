@@ -1,4 +1,5 @@
 #include "musicsettingxmlcache.h"
+#include "utils/fileutils.h"
 #include <QtXml>
 #include <QFile>
 #include <QString>
@@ -11,8 +12,6 @@ const QString QUICK_TASK = "QuickTask";
 const QString FILE_TASK = "FileTask";
 const QString IS_DEFAULT = "IsDefault";
 const QString MUSIC_FILE = "MusicFile";
-
-const QString MUSIC_SETTING_FILE = "music_setting.xml";
 
 }
 
@@ -64,7 +63,7 @@ void MusicSettingXmlCache::setMusicSetting(const MusicSettingItem &settingItem)
     root.appendChild(quickTask);
     root.appendChild(fileTask);
 
-    QFile musicSettingFile(MUSIC_SETTING_FILE);
+    QFile musicSettingFile(FileUtils::getMusicSettingFile());
     if (!musicSettingFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {
         return;
@@ -78,7 +77,7 @@ void MusicSettingXmlCache::setMusicSetting(const MusicSettingItem &settingItem)
 void MusicSettingXmlCache::getMusicSetting(MusicSettingItem &settingItem)
 {
     QDomDocument doc;
-    QFile musicSettingFile(MUSIC_SETTING_FILE);
+    QFile musicSettingFile(FileUtils::getMusicSettingFile());
     if (!musicSettingFile.open(QIODevice::ReadOnly))
     {
         return;
