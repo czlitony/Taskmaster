@@ -36,7 +36,11 @@ SOURCES += \
     settings/settingdialog.cpp \
     tasks/taskretriever.cpp \
     tasks/newtaskretriever.cpp \
-    utils/fileutils.cpp
+    utils/fileutils.cpp \
+    tasks/newtaskretriever.cpp \
+    tasks/orderdetail.cpp \
+    tasks/quicktask.cpp \
+    tasks/taskretriever.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +53,11 @@ HEADERS += \
     settings/settingdialog.h \
     tasks/taskretriever.h \
     tasks/newtaskretriever.h \
-    utils/fileutils.h
+    utils/fileutils.h \
+    tasks/newtaskretriever.h \
+    tasks/orderdetail.h \
+    tasks/quicktask.h \
+    tasks/taskretriever.h
 
 FORMS += \
         mainwindow.ui \
