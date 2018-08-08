@@ -7,6 +7,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class TaskManager;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -19,8 +21,12 @@ private slots:
 
     void on_settingButton_clicked();
 
+    void on_switchButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    TaskManager* m_taskManager;
 };
 
 #endif // MAINWINDOW_H

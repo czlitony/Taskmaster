@@ -7,13 +7,15 @@
 class FileUtils
 {
 public:
-    static const QString getAppDir();
+    static const QString appDir();
 
-    static const QString getMusicSettingFile();
+    static const QString musicSettingFile();
 
-    static const QString getCookieFile();
+    static const QString cookieFile();
 
-    static const QString getGeneralSettingFile();
+    static const QString generalSettingFile();
+
+    static const QString taskResponseFile();
 };
 
 #endif // FILEUTILS_H

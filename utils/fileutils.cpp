@@ -3,22 +3,27 @@
 #include <QStandardPaths>
 #include <QDebug>
 
-const QString FileUtils::getAppDir()
+const QString FileUtils::appDir()
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator();
 }
 
-const QString FileUtils::getMusicSettingFile()
+const QString FileUtils::musicSettingFile()
 {
-    return getAppDir() + "music_setting.xml";
+    return appDir() + "music_setting.xml";
 }
 
-const QString FileUtils::getCookieFile()
+const QString FileUtils::cookieFile()
 {
-    return getAppDir() + "cookie.ini";
+    return appDir() + "cookie.ini";
 }
 
-const QString FileUtils::getGeneralSettingFile()
+const QString FileUtils::generalSettingFile()
 {
-    return getAppDir() + "general_setting.ini";
+    return appDir() + "general_setting.ini";
+}
+
+const QString FileUtils::taskResponseFile()
+{
+    return appDir() + "task_response";
 }

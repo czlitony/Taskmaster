@@ -61,7 +61,7 @@ void SettingDialog::on_selfQuickTaskMusicButton_clicked()
 
 void SettingDialog::on_selectQuickTaskMusicButton_clicked()
 {
-    QSettings setting(FileUtils::getGeneralSettingFile(), QSettings::IniFormat);
+    QSettings setting(FileUtils::generalSettingFile(), QSettings::IniFormat);
     QString lastPath = setting.value(LAST_MUSIC_FILE_PATH).toString();
 
     QFileDialog *fileDialog = new QFileDialog(this);
@@ -102,7 +102,7 @@ void SettingDialog::on_selfFileTaskMusicButton_clicked()
 
 void SettingDialog::on_selectFileTaskMusicButton_clicked()
 {
-    QSettings setting(FileUtils::getGeneralSettingFile(), QSettings::IniFormat);
+    QSettings setting(FileUtils::generalSettingFile(), QSettings::IniFormat);
     QString lastPath = setting.value(LAST_MUSIC_FILE_PATH).toString();
 
     QFileDialog *fileDialog = new QFileDialog(this);
@@ -132,7 +132,7 @@ void SettingDialog::on_updateCookieButton_clicked()
     QString cookie = ui->cookieTextEdit->toPlainText();
     if (!cookie.isEmpty())
     {
-        QSettings setting(FileUtils::getCookieFile(), QSettings::IniFormat);
+        QSettings setting(FileUtils::cookieFile(), QSettings::IniFormat);
         setting.setValue(COOKIE, cookie);
     }
 }

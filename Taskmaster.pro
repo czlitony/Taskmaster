@@ -35,12 +35,14 @@ SOURCES += \
     settings/musicsetting/musicsettingxmlcache.cpp \
     settings/settingdialog.cpp \
     tasks/taskretriever.cpp \
-    tasks/newtaskretriever.cpp \
     utils/fileutils.cpp \
-    tasks/newtaskretriever.cpp \
     tasks/orderdetail.cpp \
     tasks/quicktask.cpp \
-    tasks/taskretriever.cpp
+    tasks/taskretriever.cpp \
+    tasks/filetask.cpp \
+    tasks/unfinishedtask.cpp \
+    tasks/taskmanager.cpp \
+    tasks/taskparser.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,12 +54,14 @@ HEADERS += \
     settings/musicsetting/musicsettingxmlcache.h \
     settings/settingdialog.h \
     tasks/taskretriever.h \
-    tasks/newtaskretriever.h \
     utils/fileutils.h \
-    tasks/newtaskretriever.h \
     tasks/orderdetail.h \
     tasks/quicktask.h \
-    tasks/taskretriever.h
+    tasks/taskretriever.h \
+    tasks/filetask.h \
+    tasks/unfinishedtask.h \
+    tasks/taskmanager.h \
+    tasks/taskparser.h
 
 FORMS += \
         mainwindow.ui \

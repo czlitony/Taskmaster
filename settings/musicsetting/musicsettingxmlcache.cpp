@@ -63,7 +63,7 @@ void MusicSettingXmlCache::setMusicSetting(const MusicSettingItem &settingItem)
     root.appendChild(quickTask);
     root.appendChild(fileTask);
 
-    QFile musicSettingFile(FileUtils::getMusicSettingFile());
+    QFile musicSettingFile(FileUtils::musicSettingFile());
     if (!musicSettingFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
     {
         return;
@@ -77,7 +77,7 @@ void MusicSettingXmlCache::setMusicSetting(const MusicSettingItem &settingItem)
 void MusicSettingXmlCache::getMusicSetting(MusicSettingItem &settingItem)
 {
     QDomDocument doc;
-    QFile musicSettingFile(FileUtils::getMusicSettingFile());
+    QFile musicSettingFile(FileUtils::musicSettingFile());
     if (!musicSettingFile.open(QIODevice::ReadOnly))
     {
         return;
