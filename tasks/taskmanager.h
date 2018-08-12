@@ -1,12 +1,12 @@
 #ifndef TASKMANAGER_H
 #define TASKMANAGER_H
 
+#include "unfinishedtask.h"
+#include "quicktask.h"
+#include "filetask.h"
 #include <QObject>
 
 class TaskRetriever;
-class UnfinishedTask;
-class QuickTask;
-class FileTask;
 
 class TaskManager : public QObject
 {
@@ -19,10 +19,9 @@ public:
 
 public slots:
     void onTasksRetrieved(enum RetrievalResult result,
-                          QList<UnfinishedTask> &unfinishedTask,
-                          QList<QuickTask> &quickTask,
-                          QList<FileTask> &fileTask);
-    void onTasksRetrieved();
+                          QList<UnfinishedTask> unfinishedTask,
+                          QList<QuickTask> quickTask,
+                          QList<FileTask> fileTask);
 
 private:
     TaskRetriever* m_taskRetriever;

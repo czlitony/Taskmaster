@@ -1,19 +1,15 @@
 #ifndef TASKRETRIEVER_H
 #define TASKRETRIEVER_H
 
+#include "tasks/unfinishedtask.h"
+#include "tasks/quicktask.h"
+#include "tasks/filetask.h"
 #include <QObject>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 #include <QList>
 
 #include <atomic>
-
-//class UnfinishedTask;
-//class QuickTask;
-//class FileTask;
-#include "tasks/unfinishedtask.h"
-#include "tasks/quicktask.h"
-#include "tasks/filetask.h"
 
 class TaskParser;
 
@@ -33,20 +29,15 @@ public:
     TaskRetriever();
 
     void retrieveTasks();
-    void getRetrievedTasks(enum RetrievalResult result,
-                           QList<UnfinishedTask> &unfinishedTask,
-                           QList<QuickTask> &quickTask,
-                           QList<FileTask> &fileTask);
 
 public slots:
     void onResponseReceived(QNetworkReply *reply);
 
 signals:
     void finished(enum RetrievalResult result,
-                  QList<UnfinishedTask> &unfinishedTask,
-                  QList<QuickTask> &quickTask,
-                  QList<FileTask> &fileTask);
-    void finished();
+                  QList<UnfinishedTask> unfinishedTask,
+                  QList<QuickTask> quickTask,
+                  QList<FileTask> fileTask);
 
 private:
     void writeResponseToCacheFile(const QByteArray& response);

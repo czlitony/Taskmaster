@@ -1,9 +1,6 @@
 #include "TaskRetriever.h"
 #include "utils/fileutils.h"
 #include "tasks/taskparser.h"
-#include "tasks/unfinishedtask.h"
-#include "tasks/quicktask.h"
-#include "tasks/filetask.h"
 #include <QSettings>
 #include <QSslConfiguration>
 #include <QNetworkReply>
@@ -45,12 +42,24 @@ TaskRetriever::TaskRetriever():
 
 void TaskRetriever::retrieveTasks()
 {
-    if (m_lastRetrievalInProgress)
+//    if (m_lastRetrievalInProgress)
+//    {
+//        return;
+//    }
+
+//    m_networkAccessManager.get(m_httpRequest);
+
+    QString response = getResponseFromCacheFile();
+    if (!response.contains("unfinsh-task", Qt::CaseInsensitive))
     {
+        m_result = RetrievalResult::SESSION_EXPIRED;
         return;
     }
+    QList<UnfinishedTask> unfinishedTask;
+    QList<QuickTask> quickTask;
+    QList<FileTask> fileTask;
+    m_taskParser->parse(response, unfinishedTask, quickTask, fileTask);
 
-    m_networkAccessManager.get(m_httpRequest);
     m_lastRetrievalInProgress = true;
 }
 
@@ -78,8 +87,7 @@ void TaskRetriever::onResponseReceived(QNetworkReply *reply)
     QList<QuickTask> quickTask;
     QList<FileTask> fileTask;
 
-//    emit finished(result, unfinishedTask, quickTask, fileTask);
-    emit finished();
+    emit finished(m_result, unfinishedTask, quickTask, fileTask);
 
     writeResponseToCacheFile(response.toUtf8());
 
@@ -120,12 +128,4 @@ QString TaskRetriever::getResponseFromCacheFile() const
     file.close();
 
     return response;
-}
-
-void TaskRetriever::getRetrievedTasks(RetrievalResult result, QList<UnfinishedTask> &unfinishedTask, QList<QuickTask> &quickTask, QList<FileTask> &fileTask)
-{
-    result = m_result;
-    unfinishedTask = m_unfinishedTask;
-    quickTask = m_quickTask;
-    fileTask = m_fileTask;
 }
