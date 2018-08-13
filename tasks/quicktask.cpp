@@ -1,8 +1,7 @@
 #include "quicktask.h"
 
 QuickTask::QuickTask():
-    m_wordNum(0),
-    m_pay(0.0)
+    m_wordNum(0)
 {
 
 }
@@ -12,7 +11,7 @@ const OrderDetail QuickTask::getOrderDetail() const
     return m_orderDetail;
 }
 
-void QuickTask::setOrderDetail(const OrderDetail &orderDetail)
+void QuickTask::setOrderNum(const OrderDetail &orderDetail)
 {
     m_orderDetail = orderDetail;
 }
@@ -57,12 +56,12 @@ void QuickTask::setFinishTime(const QString &finishTime)
     m_finishTime = finishTime;
 }
 
-double QuickTask::getPay() const
+const QString QuickTask::getPay() const
 {
     return m_pay;
 }
 
-void QuickTask::setPay(const double pay)
+void QuickTask::setPay(const QString& pay)
 {
     m_pay = pay;
 }
