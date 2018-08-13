@@ -14,7 +14,7 @@ public:
     const QString getLanguage() const;
     void setLanguage(const QString& language);
 
-    const unsigned int getWordNumber() const;
+    unsigned int getWordNumber() const;
     void setWordNumber(const unsigned int wordNum);
 
     const QString getArea() const;
@@ -26,7 +26,7 @@ public:
     const QString getTimeLeft() const;
     void setTimeLeft(const QString& timeLeft);
 
-    const double getPay() const;
+    double getPay() const;
     void setPay(const double pay);
 
     const QString getBonus() const;

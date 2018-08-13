@@ -14,7 +14,7 @@ public:
     const QString getLanguage() const;
     void setLanguage(const QString& language);
 
-    const unsigned int getWordNumber() const;
+    unsigned int getWordNumber() const;
     void setWordNumber(const unsigned int wordNum);
 
     const QString getStatus() const;
@@ -26,7 +26,7 @@ public:
     const QString getDeadline() const;
     void setDeadline(const QString& deadline);
 
-    const double getPay() const;
+    double getPay() const;
     void setPay(const double pay);
 
     const QString getBonus() const;
@@ -35,7 +35,7 @@ public:
 private:
     OrderDetail m_orderDetail;
     QString m_language;
-    unsigned short m_wordNum;
+    unsigned int m_wordNum;
     QString m_status;
     QString m_timeLeft;
     QString m_deadline;

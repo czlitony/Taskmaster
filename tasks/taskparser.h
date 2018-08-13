@@ -19,9 +19,13 @@ public:
                QList<FileTask>& fileTask);
 
 private:
-    void parseUnfinishedTask(QList<UnfinishedTask>& unfinishedTask);
-    void parseQuickTask(QList<QuickTask>& quickTask);
-    void parseFileTask(QList<FileTask>& fileTask);
+    void parseUnfinishedTask(const QString& unfinishedTaskStr, QList<UnfinishedTask>& unfinishedTask);
+    void parseQuickTask(const QString& quickTaskStr, QList<QuickTask>& quickTask);
+    void parseFileTask(const QString& fileTaskStr, QList<FileTask>& fileTask);
+
+    QString getData(const QString& taskStr, const QString& type);
+
+
 };
 
 #endif // TASKPARSER_H

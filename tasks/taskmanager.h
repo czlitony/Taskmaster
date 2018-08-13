@@ -4,9 +4,8 @@
 #include "unfinishedtask.h"
 #include "quicktask.h"
 #include "filetask.h"
+#include "taskretriever.h"
 #include <QObject>
-
-class TaskRetriever;
 
 class TaskManager : public QObject
 {

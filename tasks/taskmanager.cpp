@@ -1,5 +1,4 @@
 #include "taskmanager.h"
-#include "taskretriever.h"
 
 TaskManager::TaskManager():
     m_taskRetriever(new TaskRetriever)

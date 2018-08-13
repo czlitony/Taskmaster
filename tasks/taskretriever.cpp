@@ -1,4 +1,4 @@
-#include "TaskRetriever.h"
+#include "taskretriever.h"
 #include "utils/fileutils.h"
 #include "tasks/taskparser.h"
 #include <QSettings>

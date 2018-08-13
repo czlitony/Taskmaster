@@ -1,4 +1,4 @@
-#include "FileTask.h"
+#include "filetask.h"
 
 FileTask::FileTask():
     m_wordNum(0),
@@ -27,7 +27,7 @@ void FileTask::setLanguage(const QString &language)
     m_language = language;
 }
 
-const unsigned int FileTask::getWordNumber() const
+unsigned int FileTask::getWordNumber() const
 {
     return m_wordNum;
 }
@@ -67,7 +67,7 @@ void FileTask::setTimeLeft(const QString &timeLeft)
     m_timeLeft = timeLeft;
 }
 
-const double FileTask::getPay() const
+double FileTask::getPay() const
 {
     return m_pay;
 }

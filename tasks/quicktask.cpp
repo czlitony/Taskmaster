@@ -27,7 +27,7 @@ void QuickTask::setLanguage(const QString &language)
     m_language = language;
 }
 
-const unsigned int QuickTask::getWordNumber() const
+unsigned int QuickTask::getWordNumber() const
 {
     return m_wordNum;
 }
@@ -57,7 +57,7 @@ void QuickTask::setFinishTime(const QString &finishTime)
     m_finishTime = finishTime;
 }
 
-const double QuickTask::getPay() const
+double QuickTask::getPay() const
 {
     return m_pay;
 }

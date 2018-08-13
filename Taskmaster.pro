@@ -34,7 +34,6 @@ SOURCES += \
     settings/musicsetting/taskmusic.cpp \
     settings/musicsetting/musicsettingxmlcache.cpp \
     settings/settingdialog.cpp \
-    tasks/taskretriever.cpp \
     utils/fileutils.cpp \
     tasks/orderdetail.cpp \
     tasks/quicktask.cpp \
@@ -53,7 +52,6 @@ HEADERS += \
     settings/musicsetting/tasktype.h \
     settings/musicsetting/musicsettingxmlcache.h \
     settings/settingdialog.h \
-    tasks/taskretriever.h \
     utils/fileutils.h \
     tasks/orderdetail.h \
     tasks/quicktask.h \

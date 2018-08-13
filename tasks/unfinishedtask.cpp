@@ -1,4 +1,4 @@
-#include "UnfinishedTask.h"
+#include "unfinishedtask.h"
 
 UnfinishedTask::UnfinishedTask():
     m_wordNum(0),
@@ -27,12 +27,12 @@ void UnfinishedTask::setLanguage(const QString &language)
     m_language = language;
 }
 
-const unsigned int UnfinishedTask::getWordNumber() const
+unsigned int UnfinishedTask::getWordNumber() const
 {
     return m_wordNum;
 }
 
-void UnfinishedTask::setWordNumber(const unsigned int wordNum)
+void UnfinishedTask::setWordNumber(unsigned int wordNum)
 {
     m_wordNum = wordNum;
 }
@@ -67,7 +67,7 @@ void UnfinishedTask::setDeadline(const QString &deadline)
     m_deadline = deadline;
 }
 
-const double UnfinishedTask::getPay() const
+double UnfinishedTask::getPay() const
 {
     return m_pay;
 }
