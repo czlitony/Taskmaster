@@ -58,7 +58,7 @@ bool TaskParser::parse(const QString &response, QList<UnfinishedTask> &unfinishe
 
 void TaskParser::parseUnfinishedTask(const QString& unfinishedTaskStr, QList<UnfinishedTask> &unfinishedTask)
 {
-    int taskNum = getTaskMetaData(unfinishedTaskStr, UNFINISHED_TASK_NUM, "<span>", "</span>").toInt();
+    int taskNum = getTaskMetaData(unfinishedTaskStr, UNFINISHED_TASK_NUM, "<span>", "</span>").toUInt();
     if (taskNum < 1)
     {
         return;
@@ -77,7 +77,7 @@ void TaskParser::parseUnfinishedTask(const QString& unfinishedTaskStr, QList<Unf
         task.setOrderDetail(orderDetail);
 
         task.setLanguage(getTaskMetaData(taskStr, LANGUAGE));
-        task.setWordNumber(getTaskMetaData(taskStr, WORLD_NUM).toInt());
+        task.setWordNumber(getTaskMetaData(taskStr, WORLD_NUM).toUInt());
         task.setStatus(getTaskMetaData(taskStr, STATES));
         task.setTimeLeft(getTaskMetaData(taskStr, TIME_LEFT));
         task.setDeadline(getTaskMetaData(taskStr, UNFINISHED_TASK_COMPLETE_TIME));
@@ -92,7 +92,7 @@ void TaskParser::parseUnfinishedTask(const QString& unfinishedTaskStr, QList<Unf
 
 void TaskParser::parseQuickTask(const QString& quickTaskStr, QList<QuickTask> &quickTask)
 {
-    int taskNum = getTaskMetaData(quickTaskStr, TASK_NUM, "<span>", "</span>").toInt();
+    int taskNum = getTaskMetaData(quickTaskStr, TASK_NUM, "<span>", "</span>").toUInt();
     if (taskNum < 1)
     {
         return;
@@ -112,7 +112,7 @@ void TaskParser::parseQuickTask(const QString& quickTaskStr, QList<QuickTask> &q
         task.setOrderDetail(orderDetail);
 
         task.setLanguage(getTaskMetaData(taskStr, LANGUAGE));
-        task.setWordNumber(getTaskMetaData(taskStr, WORD_NUM).toInt());
+        task.setWordNumber(getTaskMetaData(taskStr, WORD_NUM).toUInt());
         task.setAbstract(getTaskMetaData(taskStr, ABSTRACT));
         task.setFinishTime(getTaskMetaData(taskStr, FINISH_TIME));
         task.setPay(getTaskMetaData(taskStr, PAY));
@@ -130,7 +130,7 @@ void TaskParser::parseQuickTask(const QString& quickTaskStr, QList<QuickTask> &q
 
 void TaskParser::parseFileTask(const QString& fileTaskStr, QList<FileTask> &fileTask)
 {
-    int taskNum = getTaskMetaData(fileTaskStr, TASK_NUM, "<span>", "</span>").toInt();
+    int taskNum = getTaskMetaData(fileTaskStr, TASK_NUM, "<span>", "</span>").toUInt();
     if (taskNum < 1)
     {
         return;
@@ -149,7 +149,7 @@ void TaskParser::parseFileTask(const QString& fileTaskStr, QList<FileTask> &file
         task.setOrderDetail(orderDetail);
 
         task.setLanguage(getTaskMetaData(taskStr, LANGUAGE));
-        task.setWordNumber(getTaskMetaData(taskStr, WORD_NUM).toInt());
+        task.setWordNumber(getTaskMetaData(taskStr, WORD_NUM).toUInt());
         task.setArea(getTaskMetaData(taskStr, AREA));
         task.setUsage(getTaskMetaData(taskStr, USAGE));
         task.setDeadline(getTaskMetaData(taskStr, FILE_TASK_COMPLETE_TIME));
