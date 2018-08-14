@@ -26,8 +26,8 @@ public:
     const QString getDeadline() const;
     void setDeadline(const QString& deadline);
 
-    double getPay() const;
-    void setPay(const double pay);
+    const QString getPay() const;
+    void setPay(const QString& pay);
 
     const QString getBonus() const;
     void setBonus(const QString& bonus);
@@ -39,7 +39,7 @@ private:
     QString m_status;
     QString m_timeLeft;
     QString m_deadline;
-    double m_pay;
+    QString m_pay;
     QString m_bonus;
 };
 

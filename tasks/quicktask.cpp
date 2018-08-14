@@ -11,7 +11,7 @@ const OrderDetail QuickTask::getOrderDetail() const
     return m_orderDetail;
 }
 
-void QuickTask::setOrderNum(const OrderDetail &orderDetail)
+void QuickTask::setOrderDetail(const OrderDetail &orderDetail)
 {
     m_orderDetail = orderDetail;
 }

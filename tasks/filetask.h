@@ -20,14 +20,17 @@ public:
     const QString getArea() const;
     void setArea(const QString& area);
 
+    const QString getUsage() const;
+    void setUsage(const QString& usage);
+
     const QString getDeadline() const;
     void setDeadline(const QString& deadline);
 
     const QString getTimeLeft() const;
     void setTimeLeft(const QString& timeLeft);
 
-    double getPay() const;
-    void setPay(const double pay);
+    const QString getPay() const;
+    void setPay(const QString& pay);
 
     const QString getBonus() const;
     void setBonus(const QString& bonus);
@@ -37,9 +40,10 @@ private:
     QString m_language;
     unsigned short m_wordNum;
     QString m_area;
+    QString m_usage;
     QString m_deadline;
     QString m_timeLeft;
-    double m_pay;
+    QString m_pay;
     QString m_bonus;
 };
 

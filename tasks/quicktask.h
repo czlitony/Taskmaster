@@ -49,7 +49,7 @@ public:
     QuickTask();
 
     const OrderDetail getOrderDetail() const;
-    void setOrderNum(const OrderDetail& orderDetail);
+    void setOrderDetail(const OrderDetail& orderDetail);
 
     const QString getLanguage() const;
     void setLanguage(const QString& language);

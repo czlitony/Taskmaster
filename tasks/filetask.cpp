@@ -1,8 +1,7 @@
 #include "filetask.h"
 
 FileTask::FileTask():
-    m_wordNum(0),
-    m_pay(0.0)
+    m_wordNum(0)
 {
 
 }
@@ -47,6 +46,16 @@ void FileTask::setArea(const QString &area)
     m_area = area;
 }
 
+const QString FileTask::getUsage() const
+{
+    return m_usage;
+}
+
+void FileTask::setUsage(const QString &usage)
+{
+    m_usage = usage;
+}
+
 const QString FileTask::getDeadline() const
 {
     return m_deadline;
@@ -67,12 +76,12 @@ void FileTask::setTimeLeft(const QString &timeLeft)
     m_timeLeft = timeLeft;
 }
 
-double FileTask::getPay() const
+const QString FileTask::getPay() const
 {
     return m_pay;
 }
 
-void FileTask::setPay(const double pay)
+void FileTask::setPay(const QString& pay)
 {
     m_pay = pay;
 }

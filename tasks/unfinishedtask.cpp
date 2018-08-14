@@ -1,8 +1,7 @@
 #include "unfinishedtask.h"
 
 UnfinishedTask::UnfinishedTask():
-    m_wordNum(0),
-    m_pay(0.0)
+    m_wordNum(0)
 {
 
 }
@@ -67,12 +66,12 @@ void UnfinishedTask::setDeadline(const QString &deadline)
     m_deadline = deadline;
 }
 
-double UnfinishedTask::getPay() const
+const QString UnfinishedTask::getPay() const
 {
     return m_pay;
 }
 
-void UnfinishedTask::setPay(const double pay)
+void UnfinishedTask::setPay(const QString& pay)
 {
     m_pay = pay;
 }

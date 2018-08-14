@@ -23,7 +23,8 @@ private:
     void parseQuickTask(const QString& quickTaskStr, QList<QuickTask>& quickTask);
     void parseFileTask(const QString& fileTaskStr, QList<FileTask>& fileTask);
 
-    QString getTaskMetaData(const QString& taskStr, const QString& type);
+//    QString getTaskMetaData(const QString& taskStr, const QString& type);
+    QString getTaskMetaData(const QString& taskStr, const QString& dataTag, const QString& dataLeftWrap = ">", const QString& dataRightWrap = "<");
     QString getQuickTaskTranslatorId(const QString& taskStr);
 
 
