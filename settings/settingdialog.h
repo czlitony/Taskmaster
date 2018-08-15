@@ -32,6 +32,8 @@ private slots:
 
     void on_updateCookieButton_clicked();
 
+    void on_retrievalIntervalSpinBox_valueChanged(int arg1);
+
 private:
     void initSettingDialog();
 

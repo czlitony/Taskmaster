@@ -41,7 +41,9 @@ SOURCES += \
     tasks/unfinishedtask.cpp \
     tasks/taskmanager.cpp \
     tasks/taskparser.cpp \
-    settings/settingcache/settingcache.cpp
+    settings/settingcache/settingcache.cpp \
+    settings/cookiesetting/cookiesetting.cpp \
+    settings/retrievalintervalsetting/retrievalintervalsetting.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +60,9 @@ HEADERS += \
     tasks/unfinishedtask.h \
     tasks/taskmanager.h \
     tasks/taskparser.h \
-    settings/settingcache/settingcache.h
+    settings/settingcache/settingcache.h \
+    settings/cookiesetting/cookiesetting.h \
+    settings/retrievalintervalsetting/retrievalintervalsetting.h
 
 FORMS += \
         mainwindow.ui \

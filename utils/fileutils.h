@@ -9,11 +9,7 @@ class FileUtils
 public:
     static const QString appDir();
 
-    static const QString musicSettingFile();
-
     static const QString settingFile();
-
-    static const QString cookieFile();
 
     static const QString generalSettingFile();
 

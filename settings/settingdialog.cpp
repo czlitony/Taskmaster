@@ -1,7 +1,9 @@
 #include "settingdialog.h"
 #include "ui_settingdialog.h"
-#include"musicsetting/musicsettingitem.h"
+#include "musicsetting/musicsettingitem.h"
 #include "musicsetting/musicsetting.h"
+#include "cookiesetting/cookiesetting.h"
+#include "retrievalintervalsetting/retrievalintervalsetting.h"
 #include "utils/fileutils.h"
 #include <QString>
 #include <QFileDialog>
@@ -38,6 +40,8 @@ void SettingDialog::initSettingDialog()
     ui->defaultFileTaskMusicButton->setChecked(isDefaultFileTaskMusic);
     ui->selfFileTaskMusicButton->setChecked(!isDefaultFileTaskMusic);
     ui->selfFileTaskMusicLineEdit->setText(musicSettings.getFileTaskMusic().getFile());
+
+    ui->retrievalIntervalSpinBox->setValue(RetrievalIntervalSetting::getInstance()->getInterval());
 }
 
 void SettingDialog::on_musicSwitch_clicked(bool checked)
@@ -132,7 +136,11 @@ void SettingDialog::on_updateCookieButton_clicked()
     QString cookie = ui->cookieTextEdit->toPlainText();
     if (!cookie.isEmpty())
     {
-        QSettings setting(FileUtils::cookieFile(), QSettings::IniFormat);
-        setting.setValue(COOKIE, cookie);
+        CookieSetting::getInstance()->setCookie(cookie);
     }
+}
+
+void SettingDialog::on_retrievalIntervalSpinBox_valueChanged(int arg1)
+{
+    RetrievalIntervalSetting::getInstance()->setInterval(arg1);
 }

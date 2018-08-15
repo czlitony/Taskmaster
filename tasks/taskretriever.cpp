@@ -1,6 +1,7 @@
 #include "taskretriever.h"
 #include "utils/fileutils.h"
 #include "tasks/taskparser.h"
+#include "settings/cookiesetting/cookiesetting.h"
 #include <QSettings>
 #include <QSslConfiguration>
 #include <QNetworkReply>
@@ -21,8 +22,7 @@ TaskRetriever::TaskRetriever():
     m_httpRequest.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko");
     m_httpRequest.setRawHeader("Connection", "Keep-Alive");
 
-    QSettings setting(FileUtils::cookieFile(), QSettings::IniFormat);
-    QString cookie = setting.value("Cookie").toString();
+    QString cookie = CookieSetting::getInstance()->getCookie();
     if (cookie.isEmpty())
     {
         m_httpRequest.setRawHeader("Cookie", DEFAULT_COOKIE.toUtf8());
