@@ -7,17 +7,43 @@
     <x>0</x>
     <y>0</y>
     <width>705</width>
-    <height>470</height>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Settings</string>
   </property>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>661</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(216, 216, 216);
+font: 75 10pt &quot;Times New Roman&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Music Setting</string>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>30</y>
+     <x>50</x>
+     <y>70</y>
      <width>631</width>
      <height>211</height>
     </rect>
@@ -109,6 +135,12 @@
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>26</height>
+       </size>
+      </property>
      </widget>
     </item>
     <item row="5" column="0">
@@ -184,6 +216,12 @@
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>26</height>
+       </size>
+      </property>
      </widget>
     </item>
     <item row="6" column="1">
@@ -214,67 +252,128 @@
     </item>
    </layout>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>9</y>
-     <width>671</width>
-     <height>251</height>
+     <y>310</y>
+     <width>661</width>
+     <height>26</height>
     </rect>
    </property>
-   <property name="title">
-    <string>Music Setting</string>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>270</y>
-     <width>671</width>
-     <height>131</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(216, 216, 216);
+font: 75 10pt &quot;Times New Roman&quot;;</string>
    </property>
-   <property name="title">
+   <property name="text">
     <string>Cookie Setting</string>
    </property>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>631</width>
-      <height>89</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QTextEdit" name="cookieTextEdit">
-       <property name="lineWrapMode">
-        <enum>QTextEdit::WidgetWidth</enum>
-       </property>
-       <property name="acceptRichText">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="updateCookieButton">
-       <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
-       </property>
-       <property name="text">
-        <string>update</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
-  <zorder>groupBox</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>groupBox_2</zorder>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>460</y>
+     <width>661</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(216, 216, 216);
+font: 75 10pt &quot;Times New Roman&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Retrieval Interval Setting</string>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>51</x>
+     <y>351</y>
+     <width>631</width>
+     <height>89</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <item row="0" column="0">
+     <widget class="QTextEdit" name="cookieTextEdit">
+      <property name="lineWrapMode">
+       <enum>QTextEdit::WidgetWidth</enum>
+      </property>
+      <property name="acceptRichText">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="updateCookieButton">
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>499</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QSpinBox" name="retrievalIntervalSpinBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>26</height>
+       </size>
+      </property>
+      <property name="minimum">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>15</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>(minutes)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -297,16 +396,32 @@
   <connection>
    <sender>musicSwitch</sender>
    <signal>toggled(bool)</signal>
-   <receiver>defaultQuickTaskMusicButton</receiver>
+   <receiver>label_2</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>128</x>
-     <y>45</y>
+     <x>50</x>
+     <y>41</y>
     </hint>
     <hint type="destinationlabel">
-     <x>119</x>
-     <y>108</y>
+     <x>72</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>selfQuickTaskMusicLineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>228</x>
+     <y>128</y>
     </hint>
    </hints>
   </connection>
@@ -329,16 +444,16 @@
   <connection>
    <sender>musicSwitch</sender>
    <signal>toggled(bool)</signal>
-   <receiver>selfQuickTaskMusicLineEdit</receiver>
+   <receiver>defaultQuickTaskMusicButton</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>156</x>
-     <y>40</y>
+     <x>128</x>
+     <y>45</y>
     </hint>
     <hint type="destinationlabel">
-     <x>228</x>
-     <y>128</y>
+     <x>119</x>
+     <y>108</y>
     </hint>
    </hints>
   </connection>
@@ -377,22 +492,6 @@
   <connection>
    <sender>musicSwitch</sender>
    <signal>toggled(bool)</signal>
-   <receiver>selfFileTaskMusicButton</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>53</x>
-     <y>40</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>105</x>
-     <y>225</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>musicSwitch</sender>
-   <signal>toggled(bool)</signal>
    <receiver>selfFileTaskMusicLineEdit</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -409,6 +508,22 @@
   <connection>
    <sender>musicSwitch</sender>
    <signal>toggled(bool)</signal>
+   <receiver>selfFileTaskMusicButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>105</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>musicSwitch</sender>
+   <signal>toggled(bool)</signal>
    <receiver>selectFileTaskMusicButton</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -419,22 +534,6 @@
     <hint type="destinationlabel">
      <x>555</x>
      <y>228</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>musicSwitch</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_2</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>50</x>
-     <y>41</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>72</x>
-     <y>170</y>
     </hint>
    </hints>
   </connection>

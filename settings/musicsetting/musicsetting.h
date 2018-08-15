@@ -31,7 +31,6 @@ private:
     static MusicSetting* m_pInstance;
 
     MusicSettingItem* m_musicSettingItem;
-    MusicSettingCache* m_musicSettingCache;
 
 };
 

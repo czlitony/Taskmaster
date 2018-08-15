@@ -32,7 +32,6 @@ SOURCES += \
     settings/musicsetting/musicsetting.cpp \
     settings/musicsetting/musicsettingitem.cpp \
     settings/musicsetting/taskmusic.cpp \
-    settings/musicsetting/musicsettingxmlcache.cpp \
     settings/settingdialog.cpp \
     utils/fileutils.cpp \
     tasks/orderdetail.cpp \
@@ -41,16 +40,15 @@ SOURCES += \
     tasks/filetask.cpp \
     tasks/unfinishedtask.cpp \
     tasks/taskmanager.cpp \
-    tasks/taskparser.cpp
+    tasks/taskparser.cpp \
+    settings/settingcache/settingcache.cpp
 
 HEADERS += \
         mainwindow.h \
     settings/musicsetting/musicsetting.h \
-    settings/musicsetting/musicsettingcache.h \
     settings/musicsetting/musicsettingitem.h \
     settings/musicsetting/taskmusic.h \
     settings/musicsetting/tasktype.h \
-    settings/musicsetting/musicsettingxmlcache.h \
     settings/settingdialog.h \
     utils/fileutils.h \
     tasks/orderdetail.h \
@@ -59,7 +57,8 @@ HEADERS += \
     tasks/filetask.h \
     tasks/unfinishedtask.h \
     tasks/taskmanager.h \
-    tasks/taskparser.h
+    tasks/taskparser.h \
+    settings/settingcache/settingcache.h
 
 FORMS += \
         mainwindow.ui \

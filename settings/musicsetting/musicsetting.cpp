@@ -1,7 +1,6 @@
 #include "musicsetting.h"
 #include"musicsettingitem.h"
-#include "musicsettingcache.h"
-#include "musicsettingxmlcache.h"
+#include "../settingcache/settingcache.h"
 
 MusicSetting* MusicSetting::m_pInstance = NULL;
 MusicSetting* MusicSetting::getInstance()
@@ -34,8 +33,7 @@ MusicSettingItem MusicSetting::getMusicSettings()
 }
 
 MusicSetting::MusicSetting():
-    m_musicSettingItem(new MusicSettingItem()),
-    m_musicSettingCache(new MusicSettingXmlCache())
+    m_musicSettingItem(new MusicSettingItem())
 {
     readCache();
 }
@@ -74,10 +72,10 @@ void MusicSetting::setSelfFileTaskMusic(const QString &music)
 
 void MusicSetting::updateCache()
 {
-    m_musicSettingCache->setMusicSetting(*m_musicSettingItem);
+    SettingCache::getInstance()->updateMusicSetting(*m_musicSettingItem);
 }
 
 void MusicSetting::readCache()
 {
-     m_musicSettingCache->getMusicSetting(*m_musicSettingItem);
+     SettingCache::getInstance()->getMusicSetting(*m_musicSettingItem);
 }

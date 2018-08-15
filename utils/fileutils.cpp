@@ -13,6 +13,11 @@ const QString FileUtils::musicSettingFile()
     return appDir() + "music_setting.xml";
 }
 
+const QString FileUtils::settingFile()
+{
+    return appDir() + "setting.xml";
+}
+
 const QString FileUtils::cookieFile()
 {
     return appDir() + "cookie.ini";
