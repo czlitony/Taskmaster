@@ -1,11 +1,11 @@
-#include "RetrievalIntervalSetting.h"
+#include "retrievalintervalsetting.h"
 #include "../settingcache/settingcache.h"
 
-RetrievalIntervalSetting* RetrievalIntervalSetting::m_pInstance = NULL;
+RetrievalIntervalSetting* RetrievalIntervalSetting::m_pInstance = nullptr;
 
 RetrievalIntervalSetting *RetrievalIntervalSetting::getInstance()
 {
-    if (m_pInstance == NULL)
+    if (m_pInstance == nullptr)
     {
         m_pInstance = new RetrievalIntervalSetting();
         atexit(releaseIntance);
@@ -16,7 +16,7 @@ RetrievalIntervalSetting *RetrievalIntervalSetting::getInstance()
 void RetrievalIntervalSetting::releaseIntance()
 {
     delete m_pInstance;
-    m_pInstance = NULL;
+    m_pInstance = nullptr;
 }
 
 

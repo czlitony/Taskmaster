@@ -10,7 +10,7 @@
 #include <QTextCodec>
 
 
-static const QString DEFAULT_COOKIE = "OUTFOX_SEARCH_USER_ID=310822447@113.108.225.251; NTES_SESS=uFtYx58yRLaj9gXVCHaGEoMgrWPQH_90_PF21HdEQc0mpvFRpWZ9_iWVHdVhuKjFqRSaNGgnNS5zxq.GJWhVFTUAThMQ.t9JoR..XUAeAUW5SQ_M8Pb8sjdPzocjmvzRi0v1hSQVHPR3IjihVBEp.P3Pws5_8D0XU3qkvEULyHfvqMrorjHdcQF33c5KQPxinhAE8wqs8Vxoi; S_INFO=1533266440|0|3&80##|szhgloria#m15651635739_1#m18625085971; P_INFO=szhgloria@163.com|1533266440|0|dict_hts|00&99|jis&1533257113&dict_hts#US&null#10#0#0|&0|dict_hts&search&youdaodict_client|szhgloria@163.com; SESSION_FROM_COOKIE=unknown; JSESSIONID=aaaC_aDobhpl2hDNtZ9tw";
+static const QString DEFAULT_COOKIE = "OUTFOX_SEARCH_USER_ID=310822447@113.108.225.251; NTES_SESS=uFtYx58yRLaj9gXVCHaGEoMgrWPQH_90_PF21HdEQc0mpvFRpWZ9_iWVHdVhuKjFqRSaNGgnNS5zxq.GJWhVFTUAThMQ.t9JoR..XUAeAUW5SQ_M8Pb8sjdPzocjmvzRi0v1hSQVHPR3IjihVBEp.P3Pws5_8D0XU3qkvEULyHfvqMrorjHdcQF33c5KQPxinhAE8wqs8Vxoi; S_INFO=1533266440|0|3&80##|szhgloria#m15651635739_1#m18625085971; P_INFO=szhgloria@163.com|1533266440|0|dict_hts|00&99|jis&1533257113&dict_hts#US&nullptr#10#0#0|&0|dict_hts&search&youdaodict_client|szhgloria@163.com; SESSION_FROM_COOKIE=unknown; JSESSIONID=aaaC_aDobhpl2hDNtZ9tw";
 
 TaskRetriever::TaskRetriever():
     m_taskParser(new TaskParser),

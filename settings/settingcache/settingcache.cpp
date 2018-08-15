@@ -39,7 +39,7 @@ void SettingCache::releaseIntance()
         m_pInstance->sync();
 
         delete m_pInstance;
-        m_pInstance = NULL;
+        m_pInstance = nullptr;
     }
 }
 

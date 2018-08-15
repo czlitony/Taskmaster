@@ -1,11 +1,11 @@
 #include "cookiesetting.h"
 #include "../settingcache/settingcache.h"
 
-CookieSetting* CookieSetting::m_pInstance = NULL;
+CookieSetting* CookieSetting::m_pInstance = nullptr;
 
 CookieSetting *CookieSetting::getInstance()
 {
-    if (m_pInstance == NULL)
+    if (m_pInstance == nullptr)
     {
         m_pInstance = new CookieSetting();
         atexit(releaseIntance);
@@ -16,7 +16,7 @@ CookieSetting *CookieSetting::getInstance()
 void CookieSetting::releaseIntance()
 {
     delete m_pInstance;
-    m_pInstance = NULL;
+    m_pInstance = nullptr;
 }
 
 

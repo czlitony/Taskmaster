@@ -2,10 +2,10 @@
 #include"musicsettingitem.h"
 #include "../settingcache/settingcache.h"
 
-MusicSetting* MusicSetting::m_pInstance = NULL;
+MusicSetting* MusicSetting::m_pInstance = nullptr;
 MusicSetting* MusicSetting::getInstance()
 {
-    if (m_pInstance == NULL)
+    if (m_pInstance == nullptr)
     {
         m_pInstance = new MusicSetting();
         atexit(releaseIntance);
@@ -18,7 +18,7 @@ void MusicSetting::releaseIntance()
     if (m_pInstance)
     {
         delete m_pInstance;
-        m_pInstance = NULL;
+        m_pInstance = nullptr;
     }
 }
 
