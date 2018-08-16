@@ -8,7 +8,7 @@ TaskManager::TaskManager():
                      Qt::DirectConnection);
 }
 
-void TaskManager::start()
+void TaskManager::retrieveTask()
 {
     m_taskRetriever->retrieveTasks();
 }

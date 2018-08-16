@@ -34,6 +34,11 @@ void RetrievalIntervalSetting::setInterval(const int interval)
 
 int RetrievalIntervalSetting::getInterval() const
 {
+    if (m_interval < 10)
+    {
+        return 10;
+    }
+
     return m_interval;
 }
 

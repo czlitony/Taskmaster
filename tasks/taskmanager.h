@@ -14,7 +14,7 @@ class TaskManager : public QObject
 public:
     TaskManager();
 
-    void start();
+    void retrieveTask();
 
 public slots:
     void onTasksRetrieved(enum RetrievalResult result,

@@ -43,7 +43,8 @@ SOURCES += \
     tasks/taskparser.cpp \
     settings/settingcache/settingcache.cpp \
     settings/cookiesetting/cookiesetting.cpp \
-    settings/retrievalintervalsetting/retrievalintervalsetting.cpp
+    settings/retrievalintervalsetting/retrievalintervalsetting.cpp \
+    taskmaster.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -62,7 +63,8 @@ HEADERS += \
     tasks/taskparser.h \
     settings/settingcache/settingcache.h \
     settings/cookiesetting/cookiesetting.h \
-    settings/retrievalintervalsetting/retrievalintervalsetting.h
+    settings/retrievalintervalsetting/retrievalintervalsetting.h \
+    taskmaster.h
 
 FORMS += \
         mainwindow.ui \
