@@ -7,9 +7,12 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
+    m_settingDialog(new SettingDialog(this)),
     m_taskMaster(new TaskMaster)
 {
     ui->setupUi(this);
+
+    m_settingDialog->setModal(true);
 }
 
 MainWindow::~MainWindow()
@@ -19,9 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_settingButton_clicked()
 {
-    SettingDialog* settingDialog = new SettingDialog(this);
-    settingDialog->setModal(true);
-    settingDialog->show();
+    m_settingDialog->show();
 }
 
 void MainWindow::on_switchButton_clicked(bool checked)

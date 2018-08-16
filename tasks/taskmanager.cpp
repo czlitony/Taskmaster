@@ -3,21 +3,24 @@
 TaskManager::TaskManager():
     m_taskRetriever(new TaskRetriever)
 {
-    QObject::connect(m_taskRetriever, SIGNAL(finished(enum RetrievalResult, QList<UnfinishedTask>, QList<QuickTask>, QList<FileTask>)),
-                     this, SLOT(onTasksRetrieved(enum RetrievalResult, QList<UnfinishedTask>, QList<QuickTask>, QList<FileTask>)),
+    QObject::connect(m_taskRetriever, SIGNAL(finished(enum RetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
+                     this, SLOT(onTasksRetrieved(enum RetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
                      Qt::DirectConnection);
 }
 
-void TaskManager::retrieveTask()
+void TaskManager::retrieveTask(TaskRetrievalCallback callback)
 {
+    m_taskRetrievalCallbcak = callback;
     m_taskRetriever->retrieveTasks();
 }
 
-void TaskManager::onTasksRetrieved(RetrievalResult result,
-                                   QList<UnfinishedTask> unfinishedTask,
-                                   QList<QuickTask> quickTask,
-                                   QList<FileTask> fileTask)
+void TaskManager::onTasksRetrieved(enum RetrievalResult result,
+                                   const QList<UnfinishedTask>& unfinishedTask,
+                                   const QList<QuickTask>& quickTask,
+                                   const QList<FileTask>& fileTask)
 {
-    qDebug() << "finished";
-    qDebug() << result;
+    if (m_taskRetrievalCallbcak)
+    {
+        m_taskRetrievalCallbcak(result, unfinishedTask, quickTask, fileTask);
+    }
 }

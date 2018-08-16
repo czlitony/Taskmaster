@@ -20,7 +20,7 @@ void RetrievalIntervalSetting::releaseIntance()
 }
 
 
-RetrievalIntervalSetting::RetrievalIntervalSetting()
+RetrievalIntervalSetting::RetrievalIntervalSetting(): m_interval(15)
 {
     readCache();
 }
@@ -34,11 +34,6 @@ void RetrievalIntervalSetting::setInterval(const int interval)
 
 int RetrievalIntervalSetting::getInterval() const
 {
-    if (m_interval < 10)
-    {
-        return 10;
-    }
-
     return m_interval;
 }
 
@@ -49,5 +44,10 @@ void RetrievalIntervalSetting::updateCache()
 
 void RetrievalIntervalSetting::readCache()
 {
-    m_interval = SettingCache::getInstance()->getRetrievalInterval();
+    int interval = SettingCache::getInstance()->getRetrievalInterval();
+
+    if (interval >= 10)
+    {
+        m_interval = interval;
+    }
 }

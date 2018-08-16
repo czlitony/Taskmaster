@@ -35,9 +35,9 @@ public slots:
 
 signals:
     void finished(enum RetrievalResult result,
-                  QList<UnfinishedTask> unfinishedTask,
-                  QList<QuickTask> quickTask,
-                  QList<FileTask> fileTask);
+                  const QList<UnfinishedTask>& unfinishedTask,
+                  const QList<QuickTask>& quickTask,
+                  const QList<FileTask>& fileTask);
 
 private:
     void writeResponseToCacheFile(const QByteArray& response);

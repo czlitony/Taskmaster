@@ -59,6 +59,7 @@ void TaskRetriever::retrieveTasks()
     QList<QuickTask> quickTask;
     QList<FileTask> fileTask;
     m_taskParser->parse(response, unfinishedTask, quickTask, fileTask);
+    emit finished(m_result, unfinishedTask, quickTask, fileTask);
 
     m_lastRetrievalInProgress = true;
 }

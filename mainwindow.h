@@ -7,6 +7,7 @@ namespace Ui {
 class MainWindow;
 }
 
+class SettingDialog;
 class TaskMaster;
 
 class MainWindow : public QMainWindow
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    SettingDialog* m_settingDialog;
     TaskMaster* m_taskMaster;
 
 };

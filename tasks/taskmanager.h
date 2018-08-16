@@ -6,6 +6,12 @@
 #include "filetask.h"
 #include "taskretriever.h"
 #include <QObject>
+#include <functional>
+
+using TaskRetrievalCallback = std::function<void(enum RetrievalResult result,
+                                                 const QList<UnfinishedTask>& unfinishedTask,
+                                                 const QList<QuickTask>& quickTask,
+                                                 const QList<FileTask>& fileTask)>;
 
 class TaskManager : public QObject
 {
@@ -14,16 +20,18 @@ class TaskManager : public QObject
 public:
     TaskManager();
 
-    void retrieveTask();
+    void retrieveTask(TaskRetrievalCallback callback);
 
 public slots:
     void onTasksRetrieved(enum RetrievalResult result,
-                          QList<UnfinishedTask> unfinishedTask,
-                          QList<QuickTask> quickTask,
-                          QList<FileTask> fileTask);
+                          const QList<UnfinishedTask>& unfinishedTask,
+                          const QList<QuickTask>& quickTask,
+                          const QList<FileTask>& fileTask);
 
 private:
     TaskRetriever* m_taskRetriever;
+
+    TaskRetrievalCallback m_taskRetrievalCallbcak;
 };
 
 #endif // TASKMANAGER_H

@@ -5,6 +5,9 @@
 #include <QTimer>
 
 class TaskManager;
+class UnfinishedTask;
+class QuickTask;
+class FileTask;
 
 class TaskMaster : public QObject
 {
@@ -22,6 +25,11 @@ public slots:
 
 private:
     void init();
+
+    void onTasksRetrieved(enum RetrievalResult result,
+                          const QList<UnfinishedTask>& unfinishedTask,
+                          const QList<QuickTask>& quickTask,
+                          const QList<FileTask>& fileTask);
 
     TaskManager* m_taskManager;
 
