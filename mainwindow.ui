@@ -85,6 +85,18 @@
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
           </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>37</number>
+          </attribute>
          </widget>
         </item>
        </layout>
@@ -128,5 +140,22 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>switchButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>settingButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>193</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

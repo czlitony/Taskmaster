@@ -40,16 +40,18 @@ void MainWindow::on_switchButton_clicked(bool checked)
 {
     if (checked)
     {
-        m_taskMaster->start();
+        startTaskMaster();
     }
     else
     {
-        m_taskMaster->stop();
+        stopTaskMaster();
     }
 }
 
 void MainWindow::showSessionExpiryDialog()
 {
+    stopTaskMaster();
+
     QMessageBox msgBox;
     msgBox.setText("Session Expired!");
     msgBox.setIcon(QMessageBox::Critical);
@@ -59,14 +61,14 @@ void MainWindow::showSessionExpiryDialog()
 void MainWindow::updateUnfinishedTasksTable(const QList<UnfinishedTask> &unfinishedTask)
 {
     QStandardItemModel *model = new QStandardItemModel();
+
     QStringList list;
-    list << "Id" << "Language" << "Word Number" << "Status" << "Time Left" << "Deadline" << "Pay" << "Bonus";
+    list << "Language" << "Word Number" << "Status" << "Time Left" << "Deadline" << "Pay" << "Bonus";
     model->setHorizontalHeaderLabels(list);
 
     int row = 0;
     foreach (UnfinishedTask item, unfinishedTask) {
         int col = 0;
-        model->setItem(row, col++, new QStandardItem(item.getOrderDetail().getNumber()));
         model->setItem(row, col++, new QStandardItem(item.getLanguage()));
         model->setItem(row, col++, new QStandardItem(QString::number(item.getWordNumber())));
         model->setItem(row, col++, new QStandardItem(item.getStatus()));
@@ -78,21 +80,23 @@ void MainWindow::updateUnfinishedTasksTable(const QList<UnfinishedTask> &unfinis
         ++row;
     }
 
-
     ui->unfinishedTaskTable->setModel(model);
+
+    ui->unfinishedTaskTable->horizontalHeader()->resizeSection(3, 150);
+    ui->unfinishedTaskTable->horizontalHeader()->resizeSection(4, 180);
 }
 
 void MainWindow::updateQuickTasksTable(const QList<QuickTask> &quickTask)
 {
     QStandardItemModel *model = new QStandardItemModel();
+
     QStringList list;
-    list << "Id" << "Language" << "Word Number" << "Abstract" << "Finish Time" << "Pay" << "Bonus";
+    list << "Language" << "Word Number" << "Abstract" << "Finish Time" << "Pay" << "Bonus";
     model->setHorizontalHeaderLabels(list);
 
     int row = 0;
     foreach (QuickTask item, quickTask) {
         int col = 0;
-        model->setItem(row, col++, new QStandardItem(item.getOrderDetail().getNumber()));
         model->setItem(row, col++, new QStandardItem(item.getLanguage()));
         model->setItem(row, col++, new QStandardItem(QString::number(item.getWordNumber())));
         model->setItem(row, col++, new QStandardItem(item.getAbstract()));
@@ -103,21 +107,21 @@ void MainWindow::updateQuickTasksTable(const QList<QuickTask> &quickTask)
         ++row;
     }
 
-
     ui->quickTaskTable->setModel(model);
+
+    ui->quickTaskTable->horizontalHeader()->resizeSection(2, 400);
 }
 
 void MainWindow::updateFileTasksTable(const QList<FileTask> &fileTask)
 {
     QStandardItemModel *model = new QStandardItemModel();
     QStringList list;
-    list << "Id" << "Language" << "Word Number" << "Field" << "Usage" << "Time Left" << "Deadline" << "Pay" << "Bonus";
+    list << "Language" << "Word Number" << "Field" << "Usage" << "Time Left" << "Deadline" << "Pay" << "Bonus";
     model->setHorizontalHeaderLabels(list);
 
     int row = 0;
     foreach (FileTask item, fileTask) {
         int col = 0;
-        model->setItem(row, col++, new QStandardItem(item.getOrderDetail().getNumber()));
         model->setItem(row, col++, new QStandardItem(item.getLanguage()));
         model->setItem(row, col++, new QStandardItem(QString::number(item.getWordNumber())));
         model->setItem(row, col++, new QStandardItem(item.getArea()));
@@ -130,8 +134,22 @@ void MainWindow::updateFileTasksTable(const QList<FileTask> &fileTask)
         ++row;
     }
 
-
     ui->fileTaskTable->setModel(model);
+
+    ui->fileTaskTable->horizontalHeader()->resizeSection(4, 180);
+    ui->fileTaskTable->horizontalHeader()->resizeSection(5, 180);
+}
+
+void MainWindow::startTaskMaster()
+{
+    m_taskMaster->start();
+}
+
+void MainWindow::stopTaskMaster()
+{
+    m_taskMaster->stop();
+
+    ui->switchButton->setChecked(false);
 }
 
 void MainWindow::onTasksRetrieved(TaskRetrievalResult result, const QList<UnfinishedTask> &unfinishedTask, const QList<QuickTask> &quickTask, const QList<FileTask> &fileTask)
@@ -142,16 +160,20 @@ void MainWindow::onTasksRetrieved(TaskRetrievalResult result, const QList<Unfini
         return;
     }
 
-    auto unfinishedTaskHandle = std::async(std::launch::async,
-                             &MainWindow::updateUnfinishedTasksTable, this, unfinishedTask);
+    updateUnfinishedTasksTable(unfinishedTask);
+    updateQuickTasksTable(quickTask);
+    updateFileTasksTable(fileTask);
 
-    auto quickTaskHandle = std::async(std::launch::async,
-                             &MainWindow::updateQuickTasksTable, this, quickTask);
+//    auto unfinishedTaskHandle = std::async(std::launch::async,
+//                             &MainWindow::updateUnfinishedTasksTable, this, unfinishedTask);
 
-    auto fileTaskHandle = std::async(std::launch::async,
-                             &MainWindow::updateFileTasksTable, this, fileTask);
+//    auto quickTaskHandle = std::async(std::launch::async,
+//                             &MainWindow::updateQuickTasksTable, this, quickTask);
 
-    unfinishedTaskHandle.get();
-    quickTaskHandle.get();
-    fileTaskHandle.get();
+//    auto fileTaskHandle = std::async(std::launch::async,
+//                             &MainWindow::updateFileTasksTable, this, fileTask);
+
+//    unfinishedTaskHandle.get();
+//    quickTaskHandle.get();
+//    fileTaskHandle.get();
 }

@@ -22,6 +22,9 @@
      <height>26</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -261,6 +264,9 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
      <height>26</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -286,6 +292,9 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
      <width>661</width>
      <height>26</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -384,12 +393,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>40</y>
+     <x>84</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>71</x>
-     <y>71</y>
+     <x>91</x>
+     <y>111</y>
     </hint>
    </hints>
   </connection>
@@ -400,12 +409,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>50</x>
-     <y>41</y>
+     <x>70</x>
+     <y>81</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>170</y>
+     <x>92</x>
+     <y>210</y>
     </hint>
    </hints>
   </connection>
@@ -416,12 +425,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>156</x>
-     <y>40</y>
+     <x>176</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>228</x>
-     <y>128</y>
+     <x>248</x>
+     <y>166</y>
     </hint>
    </hints>
   </connection>
@@ -432,12 +441,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>40</y>
+     <x>163</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>171</x>
-     <y>127</y>
+     <x>191</x>
+     <y>167</y>
     </hint>
    </hints>
   </connection>
@@ -448,12 +457,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>128</x>
-     <y>45</y>
+     <x>148</x>
+     <y>85</y>
     </hint>
     <hint type="destinationlabel">
-     <x>119</x>
-     <y>108</y>
+     <x>139</x>
+     <y>148</y>
     </hint>
    </hints>
   </connection>
@@ -464,12 +473,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>135</x>
-     <y>42</y>
+     <x>155</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
-     <x>562</x>
-     <y>144</y>
+     <x>622</x>
+     <y>184</y>
     </hint>
    </hints>
   </connection>
@@ -480,12 +489,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>98</x>
-     <y>40</y>
+     <x>118</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>85</x>
-     <y>200</y>
+     <x>105</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -496,12 +505,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>40</x>
-     <y>37</y>
+     <x>60</x>
+     <y>77</y>
     </hint>
     <hint type="destinationlabel">
-     <x>249</x>
-     <y>224</y>
+     <x>269</x>
+     <y>262</y>
     </hint>
    </hints>
   </connection>
@@ -512,12 +521,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>53</x>
-     <y>40</y>
+     <x>73</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>105</x>
-     <y>225</y>
+     <x>125</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>
@@ -528,12 +537,12 @@ font: 75 10pt &quot;Times New Roman&quot;;</string>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>100</x>
-     <y>44</y>
+     <x>120</x>
+     <y>84</y>
     </hint>
     <hint type="destinationlabel">
-     <x>555</x>
-     <y>228</y>
+     <x>615</x>
+     <y>268</y>
     </hint>
    </hints>
   </connection>

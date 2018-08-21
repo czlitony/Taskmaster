@@ -38,6 +38,9 @@ private:
     void updateQuickTasksTable(const QList<QuickTask>& quickTask);
     void updateFileTasksTable(const QList<FileTask>& fileTask);
 
+    void startTaskMaster();
+    void stopTaskMaster();
+
     Ui::MainWindow *ui;
 
     SettingDialog* m_settingDialog;

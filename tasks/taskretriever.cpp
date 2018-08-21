@@ -14,8 +14,7 @@ static const QString DEFAULT_COOKIE = "OUTFOX_SEARCH_USER_ID=310822447@113.108.2
 
 TaskRetriever::TaskRetriever():
     m_taskParser(new TaskParser),
-    m_lastRetrievalInProgress(false),
-    m_result(TaskRetrievalResult::UNKNOWN)
+    m_lastRetrievalInProgress(false)
 {
     m_httpRequest.setUrl(QUrl("https://f.youdao.com/ds/task.do?method=index"));
 
@@ -50,16 +49,11 @@ void TaskRetriever::retrieveTasks()
 //    m_networkAccessManager.get(m_httpRequest);
 
     QString response = getResponseFromCacheFile();
-    if (!response.contains("unfinsh-task", Qt::CaseInsensitive))
-    {
-        m_result = TaskRetrievalResult::SESSION_EXPIRED;
-        return;
-    }
     QList<UnfinishedTask> unfinishedTask;
     QList<QuickTask> quickTask;
     QList<FileTask> fileTask;
     m_taskParser->parse(response, unfinishedTask, quickTask, fileTask);
-    emit finished(m_result, unfinishedTask, quickTask, fileTask);
+    emit finished(TaskRetrievalResult::SUCCEED, unfinishedTask, quickTask, fileTask);
 
     m_lastRetrievalInProgress = true;
 }
@@ -68,19 +62,7 @@ void TaskRetriever::onResponseReceived(QNetworkReply *reply)
 {
     m_lastRetrievalInProgress = false;
 
-    m_result = TaskRetrievalResult::UNKNOWN;
-
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-    if (statusCode != 200)
-    {
-        m_result = TaskRetrievalResult::NETWORK_ERROR;
-    }
-    else if (reply->error() != QNetworkReply::NoError)
-    {
-        m_result = TaskRetrievalResult::NETWORK_ERROR;
-    }
-
-    m_result = TaskRetrievalResult::SUCCEED;
 
     QString response(reply->readAll());
 
@@ -88,7 +70,12 @@ void TaskRetriever::onResponseReceived(QNetworkReply *reply)
     QList<QuickTask> quickTask;
     QList<FileTask> fileTask;
 
-    emit finished(m_result, unfinishedTask, quickTask, fileTask);
+    if (getTaskRetrievalResult(statusCode) == TaskRetrievalResult::SUCCEED)
+    {
+        m_taskParser->parse(response, unfinishedTask, quickTask, fileTask);
+    }
+
+    emit finished(getTaskRetrievalResult(statusCode), unfinishedTask, quickTask, fileTask);
 
     writeResponseToCacheFile(response.toUtf8());
 
@@ -129,4 +116,20 @@ QString TaskRetriever::getResponseFromCacheFile() const
     file.close();
 
     return response;
+}
+
+TaskRetrievalResult TaskRetriever::getTaskRetrievalResult(int httpStatusCode)
+{
+    if (httpStatusCode == 200)
+    {
+        return TaskRetrievalResult::SUCCEED;
+    }
+    else if (httpStatusCode == 302)
+    {
+        return TaskRetrievalResult::SESSION_EXPIRED;
+    }
+    else
+    {
+        return TaskRetrievalResult::NETWORK_ERROR;
+    }
 }

@@ -36,6 +36,8 @@ private:
     void writeResponseToCacheFile(const QByteArray& response);
     QString getResponseFromCacheFile() const;
 
+    enum TaskRetrievalResult getTaskRetrievalResult(int httpStatusCode);
+
     QNetworkRequest m_httpRequest;
     QNetworkAccessManager m_networkAccessManager;
 
@@ -43,7 +45,6 @@ private:
 
     std::atomic<bool> m_lastRetrievalInProgress;
 
-    enum TaskRetrievalResult m_result;
     QList<UnfinishedTask> m_unfinishedTask;
     QList<QuickTask> m_quickTask;
     QList<FileTask> m_fileTask;
