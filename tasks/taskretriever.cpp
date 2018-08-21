@@ -15,7 +15,7 @@ static const QString DEFAULT_COOKIE = "OUTFOX_SEARCH_USER_ID=310822447@113.108.2
 TaskRetriever::TaskRetriever():
     m_taskParser(new TaskParser),
     m_lastRetrievalInProgress(false),
-    m_result(RetrievalResult::UNKNOWN)
+    m_result(TaskRetrievalResult::UNKNOWN)
 {
     m_httpRequest.setUrl(QUrl("https://f.youdao.com/ds/task.do?method=index"));
 
@@ -52,7 +52,7 @@ void TaskRetriever::retrieveTasks()
     QString response = getResponseFromCacheFile();
     if (!response.contains("unfinsh-task", Qt::CaseInsensitive))
     {
-        m_result = RetrievalResult::SESSION_EXPIRED;
+        m_result = TaskRetrievalResult::SESSION_EXPIRED;
         return;
     }
     QList<UnfinishedTask> unfinishedTask;
@@ -68,19 +68,19 @@ void TaskRetriever::onResponseReceived(QNetworkReply *reply)
 {
     m_lastRetrievalInProgress = false;
 
-    m_result = RetrievalResult::UNKNOWN;
+    m_result = TaskRetrievalResult::UNKNOWN;
 
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (statusCode != 200)
     {
-        m_result = RetrievalResult::NETWORK_ERROR;
+        m_result = TaskRetrievalResult::NETWORK_ERROR;
     }
     else if (reply->error() != QNetworkReply::NoError)
     {
-        m_result = RetrievalResult::NETWORK_ERROR;
+        m_result = TaskRetrievalResult::NETWORK_ERROR;
     }
 
-    m_result = RetrievalResult::SUCCEED;
+    m_result = TaskRetrievalResult::SUCCEED;
 
     QString response(reply->readAll());
 

@@ -8,7 +8,7 @@
 #include <QObject>
 #include <functional>
 
-using TaskRetrievalCallback = std::function<void(enum RetrievalResult result,
+using TaskRetrievalCallback = std::function<void(enum TaskRetrievalResult result,
                                                  const QList<UnfinishedTask>& unfinishedTask,
                                                  const QList<QuickTask>& quickTask,
                                                  const QList<FileTask>& fileTask)>;
@@ -23,7 +23,7 @@ public:
     void retrieveTask(TaskRetrievalCallback callback);
 
 public slots:
-    void onTasksRetrieved(enum RetrievalResult result,
+    void onTasksRetrieved(enum TaskRetrievalResult result,
                           const QList<UnfinishedTask>& unfinishedTask,
                           const QList<QuickTask>& quickTask,
                           const QList<FileTask>& fileTask);

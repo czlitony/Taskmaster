@@ -23,10 +23,16 @@ public:
 public slots:
     void retrieveTask();
 
+signals:
+    void fireOnTasksRetrieved(enum TaskRetrievalResult result,
+                              const QList<UnfinishedTask>& unfinishedTask,
+                              const QList<QuickTask>& quickTask,
+                              const QList<FileTask>& fileTask);
+
 private:
     void init();
 
-    void onTasksRetrieved(enum RetrievalResult result,
+    void onTasksRetrieved(enum TaskRetrievalResult result,
                           const QList<UnfinishedTask>& unfinishedTask,
                           const QList<QuickTask>& quickTask,
                           const QList<FileTask>& fileTask);

@@ -1,9 +1,10 @@
 #ifndef TASKRETRIEVER_H
 #define TASKRETRIEVER_H
 
-#include "tasks/unfinishedtask.h"
-#include "tasks/quicktask.h"
-#include "tasks/filetask.h"
+#include "retrievalresult.h"
+#include "unfinishedtask.h"
+#include "quicktask.h"
+#include "filetask.h"
 #include <QObject>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
@@ -12,14 +13,6 @@
 #include <atomic>
 
 class TaskParser;
-
-enum RetrievalResult
-{
-    SUCCEED,
-    SESSION_EXPIRED,
-    NETWORK_ERROR,
-    UNKNOWN
-};
 
 class TaskRetriever : public QObject
 {
@@ -34,7 +27,7 @@ public slots:
     void onResponseReceived(QNetworkReply *reply);
 
 signals:
-    void finished(enum RetrievalResult result,
+    void finished(enum TaskRetrievalResult result,
                   const QList<UnfinishedTask>& unfinishedTask,
                   const QList<QuickTask>& quickTask,
                   const QList<FileTask>& fileTask);
@@ -50,7 +43,7 @@ private:
 
     std::atomic<bool> m_lastRetrievalInProgress;
 
-    enum RetrievalResult m_result;
+    enum TaskRetrievalResult m_result;
     QList<UnfinishedTask> m_unfinishedTask;
     QList<QuickTask> m_quickTask;
     QList<FileTask> m_fileTask;

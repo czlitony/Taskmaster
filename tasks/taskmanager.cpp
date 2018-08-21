@@ -3,8 +3,8 @@
 TaskManager::TaskManager():
     m_taskRetriever(new TaskRetriever)
 {
-    QObject::connect(m_taskRetriever, SIGNAL(finished(enum RetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
-                     this, SLOT(onTasksRetrieved(enum RetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
+    QObject::connect(m_taskRetriever, SIGNAL(finished(enum TaskRetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
+                     this, SLOT(onTasksRetrieved(enum TaskRetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
                      Qt::DirectConnection);
 }
 
@@ -14,7 +14,7 @@ void TaskManager::retrieveTask(TaskRetrievalCallback callback)
     m_taskRetriever->retrieveTasks();
 }
 
-void TaskManager::onTasksRetrieved(enum RetrievalResult result,
+void TaskManager::onTasksRetrieved(enum TaskRetrievalResult result,
                                    const QList<UnfinishedTask>& unfinishedTask,
                                    const QList<QuickTask>& quickTask,
                                    const QList<FileTask>& fileTask)

@@ -40,10 +40,11 @@ void TaskMaster::stop()
     m_taskRetrievalTimer->stop();
 }
 
-void TaskMaster::onTasksRetrieved(RetrievalResult result,
+void TaskMaster::onTasksRetrieved(TaskRetrievalResult result,
                                   const QList<UnfinishedTask> &unfinishedTask,
                                   const QList<QuickTask> &quickTask,
                                   const QList<FileTask> &fileTask)
 {
     qDebug() << "retrieved";
+    emit fireOnTasksRetrieved(result, unfinishedTask, quickTask, fileTask);
 }

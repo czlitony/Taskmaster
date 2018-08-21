@@ -81,7 +81,11 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTableView" name="unfinishedTaskTable"/>
+         <widget class="QTableView" name="unfinishedTaskTable">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -93,7 +97,11 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QTableView" name="quickTaskTable"/>
+         <widget class="QTableView" name="quickTaskTable">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -105,7 +113,11 @@
        </property>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QTableView" name="fileTaskTable"/>
+         <widget class="QTableView" name="fileTaskTable">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

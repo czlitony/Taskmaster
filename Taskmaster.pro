@@ -64,7 +64,8 @@ HEADERS += \
     settings/settingcache/settingcache.h \
     settings/cookiesetting/cookiesetting.h \
     settings/retrievalintervalsetting/retrievalintervalsetting.h \
-    taskmaster.h
+    taskmaster.h \
+    tasks/retrievalresult.h
 
 FORMS += \
         mainwindow.ui \

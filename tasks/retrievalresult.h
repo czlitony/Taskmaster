@@ -1,0 +1,12 @@
+#ifndef RETRIEVALRESULT_H
+#define RETRIEVALRESULT_H
+
+enum TaskRetrievalResult
+{
+    SUCCEED,
+    SESSION_EXPIRED,
+    NETWORK_ERROR,
+    UNKNOWN
+};
+
+#endif // RETRIEVALRESULT_H
