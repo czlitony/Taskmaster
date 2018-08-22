@@ -14,7 +14,7 @@ TaskMusic::TaskMusic(bool isDefault, const QString &file):
 
 }
 
-bool TaskMusic::isDefaultMusic() const
+bool TaskMusic::isDefaultMusicOn() const
 {
     return m_isDefault;
 }

@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 QT += xml
 QT += network
+QT += multimedia
 
 TARGET = Taskmaster
 TEMPLATE = app
@@ -44,7 +45,8 @@ SOURCES += \
     settings/settingcache/settingcache.cpp \
     settings/cookiesetting/cookiesetting.cpp \
     settings/retrievalintervalsetting/retrievalintervalsetting.cpp \
-    taskmaster.cpp
+    taskmaster.cpp \
+    musicplayer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -65,8 +67,12 @@ HEADERS += \
     settings/cookiesetting/cookiesetting.h \
     settings/retrievalintervalsetting/retrievalintervalsetting.h \
     taskmaster.h \
-    tasks/retrievalresult.h
+    tasks/retrievalresult.h \
+    musicplayer.h
 
 FORMS += \
         mainwindow.ui \
     settings/settingdialog.ui
+
+RESOURCES += \
+    resources/music.qrc

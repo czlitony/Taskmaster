@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>defaultmusic/Despacito.mp3</file>
+        <file>defaultmusic/Sunrise.wav</file>
+    </qresource>
+</RCC>

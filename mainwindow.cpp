@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete m_settingDialog;
+    delete m_taskMaster;
 }
 
 void MainWindow::on_settingButton_clicked()
@@ -60,6 +62,11 @@ void MainWindow::showSessionExpiryDialog()
 
 void MainWindow::updateUnfinishedTasksTable(const QList<UnfinishedTask> &unfinishedTask)
 {
+    if (unfinishedTask.empty())
+    {
+        return;
+    }
+
     QStandardItemModel *model = new QStandardItemModel();
 
     QStringList list;
@@ -88,6 +95,11 @@ void MainWindow::updateUnfinishedTasksTable(const QList<UnfinishedTask> &unfinis
 
 void MainWindow::updateQuickTasksTable(const QList<QuickTask> &quickTask)
 {
+    if (quickTask.empty())
+    {
+        return;
+    }
+
     QStandardItemModel *model = new QStandardItemModel();
 
     QStringList list;
@@ -114,7 +126,13 @@ void MainWindow::updateQuickTasksTable(const QList<QuickTask> &quickTask)
 
 void MainWindow::updateFileTasksTable(const QList<FileTask> &fileTask)
 {
+    if (fileTask.empty())
+    {
+        return;
+    }
+
     QStandardItemModel *model = new QStandardItemModel();
+
     QStringList list;
     list << "Language" << "Word Number" << "Field" << "Usage" << "Time Left" << "Deadline" << "Pay" << "Bonus";
     model->setHorizontalHeaderLabels(list);

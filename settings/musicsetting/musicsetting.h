@@ -12,15 +12,23 @@ public:
     static MusicSetting* getInstance();
     static void releaseIntance();
 
-    MusicSettingItem getMusicSettings();
-
     void switchMusic(bool on);
 
-    void setDefaultQuickTaskMusic();
+    bool isMusicOn() const;
+
+    void setDefaultQuickTaskMusicOn();
     void setSelfQuickTaskMusic(const QString& music);
 
-    void setDefaultFileTaskMusic();
+    bool isDefaultQuickTaskMusicOn() const;
+    const QString getDefaultQuickTaskMusic() const;
+    const QString getSelfQuickTaskMusic() const;
+
+    void setDefaultFileTaskMusicOn();
     void setSelfFileTaskMusic(const QString& music);
+
+    bool isDefaultFileTaskMusicOn() const;
+    const QString getDefaultFileTaskMusic() const;
+    const QString getSelfFileTaskMusic() const;
 
 private:
     MusicSetting();

@@ -27,19 +27,17 @@ SettingDialog::~SettingDialog()
 
 void SettingDialog::initSettingDialog()
 {
-    MusicSettingItem musicSettings = MusicSetting::getInstance()->getMusicSettings();
+    ui->musicSwitch->setChecked(MusicSetting::getInstance()->isMusicOn());
 
-    ui->musicSwitch->setChecked(musicSettings.isMusicOn());
-
-    bool isDefaultQuickTaskMusic = musicSettings.getQuickTaskMusic().isDefaultMusic();
+    bool isDefaultQuickTaskMusic = MusicSetting::getInstance()->isDefaultQuickTaskMusicOn();
     ui->defaultQuickTaskMusicButton->setChecked(isDefaultQuickTaskMusic);
     ui->selfQuickTaskMusicButton->setChecked(!isDefaultQuickTaskMusic);
-    ui->selfQuickTaskMusicLineEdit->setText(musicSettings.getQuickTaskMusic().getFile());
+    ui->selfQuickTaskMusicLineEdit->setText(MusicSetting::getInstance()->getSelfQuickTaskMusic());
 
-    bool isDefaultFileTaskMusic = musicSettings.getFileTaskMusic().isDefaultMusic();
+    bool isDefaultFileTaskMusic = MusicSetting::getInstance()->isDefaultFileTaskMusicOn();
     ui->defaultFileTaskMusicButton->setChecked(isDefaultFileTaskMusic);
     ui->selfFileTaskMusicButton->setChecked(!isDefaultFileTaskMusic);
-    ui->selfFileTaskMusicLineEdit->setText(musicSettings.getFileTaskMusic().getFile());
+    ui->selfFileTaskMusicLineEdit->setText(MusicSetting::getInstance()->getSelfFileTaskMusic());
 
     ui->retrievalIntervalSpinBox->setValue(RetrievalIntervalSetting::getInstance()->getInterval());
 }
@@ -51,7 +49,7 @@ void SettingDialog::on_musicSwitch_clicked(bool checked)
 
 void SettingDialog::on_defaultQuickTaskMusicButton_clicked()
 {
-    MusicSetting::getInstance()->setDefaultQuickTaskMusic();
+    MusicSetting::getInstance()->setDefaultQuickTaskMusicOn();
 }
 
 void SettingDialog::on_selfQuickTaskMusicButton_clicked()
@@ -92,7 +90,7 @@ void SettingDialog::on_selectQuickTaskMusicButton_clicked()
 
 void SettingDialog::on_defaultFileTaskMusicButton_clicked()
 {
-    MusicSetting::getInstance()->setDefaultFileTaskMusic();
+    MusicSetting::getInstance()->setDefaultFileTaskMusicOn();
 }
 
 void SettingDialog::on_selfFileTaskMusicButton_clicked()

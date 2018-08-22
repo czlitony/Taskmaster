@@ -8,6 +8,7 @@ class TaskManager;
 class UnfinishedTask;
 class QuickTask;
 class FileTask;
+class MusicPlayer;
 
 class TaskMaster : public QObject
 {
@@ -37,9 +38,13 @@ private:
                           const QList<QuickTask>& quickTask,
                           const QList<FileTask>& fileTask);
 
+    void playMusic(bool haveQuickTasks, bool haveFileTasks);
+
     TaskManager* m_taskManager;
 
     QTimer* m_taskRetrievalTimer;
+
+    MusicPlayer* m_musicPlayer;
 };
 
 #endif // TASKMASTER_H

@@ -11,7 +11,7 @@ public:
     TaskMusic();
     TaskMusic(bool isDefault, const QString& file);
 
-    bool isDefaultMusic() const;
+    bool isDefaultMusicOn() const;
     void setAsDefault(bool isDefault);
 
     const QString getFile() const;

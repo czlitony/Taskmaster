@@ -52,10 +52,10 @@ void SettingCache::updateMusicSetting(const MusicSettingItem &settingItem)
 {
     setValue(MUSIC_GROUP, MUSIC_ON, settingItem.isMusicOn());
 
-    setValue(MUSIC_GROUP, QUICK_TASK_DEFAULT, settingItem.getQuickTaskMusic().isDefaultMusic());
+    setValue(MUSIC_GROUP, QUICK_TASK_DEFAULT, settingItem.getQuickTaskMusic().isDefaultMusicOn());
     setValue(MUSIC_GROUP, QUICK_TASK_MUSIC, settingItem.getQuickTaskMusic().getFile());
 
-    setValue(MUSIC_GROUP, FILE_TASK_DEFAULT, settingItem.getFileTaskMusic().isDefaultMusic());
+    setValue(MUSIC_GROUP, FILE_TASK_DEFAULT, settingItem.getFileTaskMusic().isDefaultMusicOn());
     setValue(MUSIC_GROUP, FILE_TASK_MUSIC, settingItem.getFileTaskMusic().getFile());
 }
 
