@@ -30,6 +30,8 @@ signals:
                               const QList<QuickTask>& quickTask,
                               const QList<FileTask>& fileTask);
 
+    void fireOnTaskRetrievalStarted();
+
 private:
     void init();
 

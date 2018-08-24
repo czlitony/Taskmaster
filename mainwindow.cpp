@@ -16,7 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_settingDialog(new SettingDialog(this)),
-    m_taskMaster(new TaskMaster)
+    m_taskMaster(new TaskMaster),
+    m_timeSecSinceLastRefresh(0),
+    m_timeSinceLastRefreshTimer(new QTimer(this))
 {
     ui->setupUi(this);
 
@@ -24,6 +26,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(m_taskMaster, SIGNAL(fireOnTasksRetrieved(TaskRetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)),
             this, SLOT(onTasksRetrieved(TaskRetrievalResult, const QList<UnfinishedTask>&, const QList<QuickTask>&, const QList<FileTask>&)), Qt::DirectConnection);
+
+    connect(m_taskMaster, SIGNAL(fireOnTaskRetrievalStarted()), this, SLOT(onTaskRetrievalStarted()), Qt::DirectConnection);
+
+    m_timeSinceLastRefreshTimer->setSingleShot(false);
+    connect(m_timeSinceLastRefreshTimer, SIGNAL(timeout()), this, SLOT(updateTimeSinceLastRefresh()));
 }
 
 MainWindow::~MainWindow()
@@ -48,6 +55,12 @@ void MainWindow::on_switchButton_clicked(bool checked)
     {
         stopTaskMaster();
     }
+}
+
+void MainWindow::onTaskRetrievalStarted()
+{
+    m_timeSecSinceLastRefresh = 0;
+    m_timeSinceLastRefreshTimer->start(1000);
 }
 
 void MainWindow::showSessionExpiryDialog()
@@ -158,6 +171,17 @@ void MainWindow::updateFileTasksTable(const QList<FileTask> &fileTask)
     ui->fileTaskTable->horizontalHeader()->resizeSection(5, 180);
 }
 
+void MainWindow::updateTaskNumber(int quickTaskNumber, int fileTaskNumber)
+{
+    ui->quickTaskNumberLineEdit->setText(QString::number(quickTaskNumber));
+    ui->fileTaskNumberLineEdit->setText(QString::number(fileTaskNumber));
+}
+
+void MainWindow::updateTimeSinceLastRefresh()
+{
+    ui->timeSinceLastRefreshLineEdit->setText(QString::number(++m_timeSecSinceLastRefresh));
+}
+
 void MainWindow::startTaskMaster()
 {
     m_taskMaster->start();
@@ -168,6 +192,8 @@ void MainWindow::stopTaskMaster()
     m_taskMaster->stop();
 
     ui->switchButton->setChecked(false);
+
+    m_timeSinceLastRefreshTimer->stop();
 }
 
 void MainWindow::onTasksRetrieved(TaskRetrievalResult result, const QList<UnfinishedTask> &unfinishedTask, const QList<QuickTask> &quickTask, const QList<FileTask> &fileTask)
@@ -177,6 +203,8 @@ void MainWindow::onTasksRetrieved(TaskRetrievalResult result, const QList<Unfini
         showSessionExpiryDialog();
         return;
     }
+
+    updateTaskNumber(quickTask.size(), fileTask.size());
 
     updateUnfinishedTasksTable(unfinishedTask);
     updateQuickTasksTable(quickTask);

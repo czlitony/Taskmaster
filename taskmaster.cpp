@@ -29,6 +29,8 @@ void TaskMaster::init()
 
 void TaskMaster::retrieveTask()
 {
+    emit fireOnTaskRetrievalStarted();
+
     m_taskManager->retrieveTask(std::bind(&TaskMaster::onTasksRetrieved, this,
         std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
 }
